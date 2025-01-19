@@ -1,6 +1,7 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 const pageTitle = "Sobre mi";
 
 const identity = {  
@@ -15,16 +16,14 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de do
 const happy = true;
 const finished = false;
 const goal = 3;
+
 const skillColor = "navy",fontWeight = "bold", textCase= "uppercase";
 
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 ---
+<BaseLayout pageTitle={pageTitle}>
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
     <style define:vars={{skillColor, fontWeight, textCase}}>
       h1 {
         color: purple;
@@ -36,10 +35,7 @@ const skillColor = "navy",fontWeight = "bold", textCase= "uppercase";
         text-transform: var(--textCase);
       }
     </style>
-  </head>
-  <body>
-       <Navigation />
-       <h1>{pageTitle}</h1>
+    
        <h2>... ¡y mi nuevo sitio Astro!</h2>
 
 	  <p>He aquí algunos datos sobre mí:</p>
@@ -63,5 +59,8 @@ const skillColor = "navy",fontWeight = "bold", textCase= "uppercase";
        <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 
        <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
-     </body>
-   </html>
+     
+     <script>
+      import "../scripts/menu.js";
+    </script>
+</BaseLayout>     
